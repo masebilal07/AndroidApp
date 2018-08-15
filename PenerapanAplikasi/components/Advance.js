@@ -2,39 +2,47 @@ import React, {Component} from 'react';
 import {
   View,Text,StyleSheet
 } from 'react-native';
-import { Container, Header,Right,Left,Button,Body,Title, Tab, Tabs, TabHeading, Icon, } from 'native-base';
+import {
+  Container, Header,Right,
+  Left,Button,Body,Title, Tab,
+  Tabs, TabHeading, Icon,Fab } from 'native-base';
+import ChatList from './ChatList';
+// import Camera from './Camera';
 
 export default class Advance extends Component {
   render(){
     return(
       <Container>
-        <Header>
+        <Header style={styles.container}>
           <Left>
             <Button transparent>
               <Icon name='arrow-back' />
             </Button>
           </Left>
           <Body>
-            <Title>WhatsApp</Title>
+            <Title style={styles.title}>WhatsApp</Title>
           </Body>
           <Right>
             <Button transparent>
-              <Text>Cancel</Text>
+              <Icon name='search' />
+            </Button>
+            <Button transparent>
+              <Icon name='more' />
             </Button>
           </Right>
         </Header>
-        <Tabs>
-          <Tab heading={ <TabHeading><Icon name="camera" /></TabHeading>}>
-
+        <Tabs  style={styles.container}>
+          <Tab heading={ <TabHeading style={styles.containericon}><Icon style={styles.icon} name="camera" /></TabHeading>}>
+            <Text>Coba Kamera</Text>
           </Tab>
-          <Tab heading={ <TabHeading><Text>Chat</Text></TabHeading>}>
-
+          <Tab heading={ <TabHeading style={styles.container}><Text style={styles.navbartext}>CHATTING</Text></TabHeading>}>
+            <ChatList />
           </Tab>
-          <Tab heading={ <TabHeading><Text>Status</Text></TabHeading>}>
-
+          <Tab heading={ <TabHeading style={styles.container}><Text style={styles.navbartext}>STATUS</Text></TabHeading>}>
+            <Text>Tes Status</Text>
           </Tab>
-          <Tab heading={ <TabHeading><Icon name="apps" />Telefon</TabHeading>}>
-
+          <Tab heading={ <TabHeading style={styles.container}><Text style={styles.navbartext}>PANGGILAN</Text></TabHeading>}>
+            <Text>Tes Panggilan</Text>
           </Tab>
         </Tabs>
       </Container>
@@ -44,10 +52,23 @@ export default class Advance extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    width: 100,
-    height: 100,
-    backgroundColor: 'green',
+    backgroundColor: '#075e54',
   },
+  containericon:{
+    backgroundColor: '#075e54',
+    width: 30,
+  },
+  navbartext: {
+    color: '#fff',
+    fontSize: 15,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  icon: {
+    color: '#fff'
+  }
 });
 
 // import React, { Component } from 'react';
